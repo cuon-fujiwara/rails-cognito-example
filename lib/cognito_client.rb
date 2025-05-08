@@ -5,7 +5,7 @@ require "cognito_urls"
 class CognitoClient
 
   def initialize(params = {})
-    @pool_id = params[:pool_id] || ENV['AWS_COGNITO_POOL_ID']
+    @pool_id = params[:pool_id] || ENV['AWS_COGNITO_USER_POOL_ID']
     @client_id = params[:client_id] || ENV['AWS_COGNITO_APP_CLIENT_ID']
     @client_secret = params[:client_secret] || ENV['AWS_COGNITO_APP_CLIENT_SECRET']
     @redirect_uri = params[:redirect_uri]

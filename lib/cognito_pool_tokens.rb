@@ -1,6 +1,7 @@
 class CognitoPoolTokens
   def initialize(cognito_jwt_keys, token_hash)
     @cognito_jwt_keys = cognito_jwt_keys
+    # puts "cognito_jwt_keys: #{cognito_jwt_keys.inspect}"
     @token_hash = token_hash
     @token_cache = {}
   end

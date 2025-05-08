@@ -10,8 +10,8 @@ class CognitoUrls
     @base_idp_uri = nil
 
     def init(domain, region)
-      @base_oauth_uri = "https://%s.auth.%s.amazoncognito.com" % [domain, region]
-      @base_idp_uri = "https://cognito-idp.%s.amazonaws.com" % [region]
+      @base_oauth_uri = "https://#{domain}.auth.#{region}.amazoncognito.com"
+      @base_idp_uri = "https://cognito-idp.#{region}.amazonaws.com"
     end
 
     def jwks_uri(pool_id)

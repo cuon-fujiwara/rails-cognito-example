@@ -41,7 +41,7 @@ class AuthController < ApplicationController
   end
 
   def lookup_auth_code(code)
-    client = new_cognito_client()
+    client = new_cognito_client
     client.get_pool_tokens(code)
   end
 end
