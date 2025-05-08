@@ -15,7 +15,7 @@ class CognitoUrls
     end
 
     def jwks_uri(pool_id)
-      path = "/%s/.well-known/jwks.json" % [pool_id]
+      path = "/#{pool_id}/.well-known/jwks.json"
       URI.join(@base_idp_uri, path).to_s
     end
 
@@ -32,20 +32,17 @@ class CognitoUrls
     end
 
     def login_uri(app_client_id, redirect_uri)
-      path = "%s?response_type=code&client_id=%s&redirect_uri=%s" %
-        [LOGIN_PATH, app_client_id, redirect_uri]
+      path = "#{LOGIN_PATH}?response_type=code&client_id=#{app_client_id}&redirect_uri=#{redirect_uri}"
       URI.join(@base_oauth_uri, path).to_s
     end
 
     def logout_uri(app_client_id, redirect_uri)
-      path = "%s?response_type=code&client_id=%s&logout_uri=%s" %
-        [LOGOUT_PATH, app_client_id, redirect_uri]
+      path = "#{LOGOUT_PATH}?response_type=code&client_id=#{app_client_id}&logout_uri=#{redirect_uri}"
       URI.join(@base_oauth_uri, path).to_s
     end
 
     def signup_uri(app_client_id, redirect_uri)
-      path = "%s?response_type=code&client_id=%s&redirect_uri=%s" %
-        [SIGNUP_PATH, app_client_id, redirect_uri]
+      path = "#{SIGNUP_PATH}?response_type=code&client_id=#{app_client_id}&redirect_uri=#{redirect_uri}"
       URI.join(@base_oauth_uri, path).to_s
     end
   end
